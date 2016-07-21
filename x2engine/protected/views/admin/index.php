@@ -574,7 +574,19 @@ $failedLoginsDataProvider = new CActiveDataProvider ('FailedLogins', array(
 
         </div>
 
+        <div class="span-20 cell admin-screen">
+            <div class="form x2-layout-island">
+                <h2 id="admin-users"><?php echo Yii::t('admin','User Management'); ?></h2>
+                <?php 
+                    $widgetClass = "FailedLoginAttemptsChartWidget";
+                    $widgetType = "profile";
+		        SortableWidget::instantiateAdminWidget (
+                    $widgetClass, Yii::app()->params->profile, $widgetType);
+                ?>
 
+            </div>
+
+        </div>
 
 <br><br>
 <style>

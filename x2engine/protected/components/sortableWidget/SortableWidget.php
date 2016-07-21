@@ -397,6 +397,31 @@ abstract class SortableWidget extends X2Widget {
     }
 
     /**
+     * Instantiates the widget
+     * @param string $widgetLayoutKey Key in widget layout associative array. Contains the widget
+     *  class name as well as the uid
+     * @param object profile
+     */
+    public static function instantiateAdminWidget (
+        $widgetLayoutKey, $profile, $widgetType = 'profile', $options = array()) {
+
+        list($widgetClass, $widgetUID) = SortableWidget::parseWidgetLayoutKey ($widgetLayoutKey);
+        if ($widgetClass::getJSONProperty (
+            $profile, 'softDeleted', $widgetType, $widgetUID)) {
+
+            return;
+        }
+        return Yii::app()->controller->widget(
+            'application.components.sortableWidget.'.$widgetClass, array_merge(
+                array(
+                    'widgetUID' => $widgetUID,
+                    'profile' => $profile,
+                    'widgetType' => $widgetType,
+                )
+        , $options));
+    }
+    
+    /**
      * @param $layoutKey The key in the widget layout associated with the widgets json properties.
      *  The key contains both the widget class name and the widget's unique id
      * @return array (<widget class name>, <widget uid>)
