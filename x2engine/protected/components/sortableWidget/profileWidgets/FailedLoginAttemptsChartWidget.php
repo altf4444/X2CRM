@@ -83,12 +83,10 @@ class FailedLoginAttemptsChartWidget extends ChartWidget {
 
 
 		$date = 
-			'IF(GREATEST(lastAttempt))';
+			'lastAttempt';
 
 		$command = Yii::app()->db->createCommand()
 			->select(
-				'type,'.
-				'COUNT(id) AS count,'.
 				'YEAR(FROM_UNIXTIME('.$date.')) AS year,'.
 				'MONTH(FROM_UNIXTIME('.$date.')) AS month,'.
 				'WEEK(FROM_UNIXTIME('.$date.')) AS week,'.
@@ -102,7 +100,7 @@ class FailedLoginAttemptsChartWidget extends ChartWidget {
 				'endTimestamp' => $endTimestamp
 			));
 		$actions = $command->group(
-				'day, week, month, year, type')
+				'day, week, month, year')
 			->order('year DESC, month DESC, week DESC, day DESC, hour desc')
 			->queryAll();
 		return $actions;
@@ -126,7 +124,7 @@ class FailedLoginAttemptsChartWidget extends ChartWidget {
                     var chartUID = '$this->chartType$this->widgetUID';
                     x2[chartUID] = {};
                     x2[chartUID].chart = X2Chart.instantiateTemporarySubtype (
-                        X2ActionHistoryChart, {
+                        X2FailedLoginAttemptsChart, {
                         ".(isset ($chartData) ?
                             "chartData :".CJSON::encode ($chartData)."," : '')."
                         
@@ -164,24 +162,7 @@ class FailedLoginAttemptsChartWidget extends ChartWidget {
                     'showRelationships' => $showRelationships,
                     'suppressChartSettings' => true,
                     'metricTypes' => array (
-                        'any'=>Yii::t('app', 'All {Actions}', array(
-                            '{Actions}' => Modules::displayName(true, 'Actions')
-                        )),
-                        ''=>Yii::t('app', 'Tasks'),
-                        'attachment'=>Yii::t('app', 'Attachments'),
-                        'call'=>Yii::t('app', 'Calls'),
-                        'email'=>Yii::t('app', 'Emails'),
-                        'emailOpened'=>Yii::t('app', 'Emails Opened'),
-                        'event'=>Yii::t('app', 'Events'),
-                        'note'=>Yii::t('app', 'Notes'),
-                        'quotes'=>Yii::t('app', '{Quotes}', array(
-                            '{Quotes}' => Modules::displayName(true, 'Quotes')
-                        )),
-                        'webactivity'=>Yii::t('app', 'Web Activity'),
-                        'workflow'=>Yii::t('app', '{Process} Actions', array(
-                            '{Process}' => Modules::displayName(false, 'Process')
-                        )),
-                        'time'=>Yii::t('app', 'Time Actions')
+                        'failedLogins'=>Yii::t('app', 'Failed Logins'),
                     ),
                     'chartType' => 'actionHistoryChart',
                     'widgetUID' => $this->widgetUID,
@@ -202,7 +183,7 @@ class FailedLoginAttemptsChartWidget extends ChartWidget {
                     'ActionHistoryChartWidgetJS' => array(
                         'baseUrl' => Yii::app()->request->baseUrl,
                         'js' => array(
-                            'js/X2Chart/X2ActionHistoryChart.js',
+                            'js/X2Chart/X2FailedLoginAttemptsChart.js',
                         ),
                         'depends' => array ('ChartWidgetJS')
                     ),
