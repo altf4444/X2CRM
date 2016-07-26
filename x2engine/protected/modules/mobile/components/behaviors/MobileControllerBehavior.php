@@ -121,6 +121,9 @@ class MobileControllerBehavior extends ControllerBehavior {
             'mobileDelete' => array (
                 'class' => 'MobileDeleteAction'
             ),
+            'mobileEmail' => array (
+                'class' => 'MobileEmailAction'
+            ),
         );
         foreach ($this->owner->behaviors () as $name => $config) {
             if ($this->owner->asa ($name) && 

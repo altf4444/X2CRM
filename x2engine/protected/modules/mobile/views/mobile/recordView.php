@@ -80,7 +80,15 @@ if ($model instanceof X2Model) {
     ?>
 
     <div class='refresh-content' data-refresh-selector='.header-content-right'>
-        <div class='header-content-right'>
+        <div class='header-content-right'  >
+            <div class='edit-button ui-btn icon-btn' style='margin-right: 50px;'
+             data-x2-url='<?php echo $this->createAbsoluteUrl ('mobileEmail', array (
+                'id' => $model->id
+             )); ?>'>
+            <?php
+            echo X2Html::fa ('fa-envelope-o');
+            ?>
+            </div>
             <div class='edit-button ui-btn icon-btn' 
              data-x2-url='<?php echo $this->createAbsoluteUrl ('mobileUpdate', array (
                 'id' => $model->id
