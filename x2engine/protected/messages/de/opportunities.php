@@ -1,10 +1,10 @@
 <?php return array (
-  'Opportunity Record Details' => 'Chancen-Details',
+  'Opportunity Record Details' => 'Chancen Details',
   'Opportunities Stage' => 'Chancen Schritt',
-  'Create {opportunity}' => 'Erstellen Sie {opportunity}',
+  'Create {opportunity}' => 'Erstelle {opportunity}',
   '{opportunity}:' => '{opportunity}',
   '{opportunities} List' => '{opportunities} Liste',
-  'Edit {opportunity}' => 'Bearbeiten {opportunity}',
+  'Edit {opportunity}' => 'Bearbeite {opportunity}',
   'Import {opportunities}' => 'Import {opportunities}',
   'Export {opportunities}' => 'Export {opportunities}',
 );

@@ -1,11 +1,11 @@
 <?php return array (
   'Module Title' => 'Modultitel',
   'The name for your new module' => 'Name für das neue Modul',
-  '(Optional) What to call individual records, e.g. "Create new X"' => 'Wie wollen Sie individuelle Datensätze benennen, z. B. "Erstelle neuen X" (optional)?',
+  '(Optional) What to call individual records, e.g. "Create new X"' => 'Wie wollen Sie individuelle Datensätze benennen, z. B. "Erstelle neue X" (optional)?',
   'DB Table Name' => 'DB Tabellenname',
-  'Optional (alphanumeric only, must start with a letter)' => 'Optional (nur alphanumerisch, muss mit einem Buchstaben beginnen)',
+  'Optional (alphanumeric only, must start with a letter)' => 'Optional (nur alfanumerisch, muss mit einem Buchstaben beginnen)',
   '{X} List' => '{X} Liste',
-  'View {X}' => 'Ansehen {X}',
+  'View {X}' => 'Zeige {X}',
   'Create {X}' => 'Erstelle {X}',
   'Update {X}' => 'Aktualisiere {X}',
   'Delete {X}' => 'Lösche {X}',
@@ -20,5 +20,5 @@
   'Import {X}' => 'Import {X}',
   'Export {X}' => 'Export {X}',
   '{modelName} Attributes' => '{modelName} Attribute',
-  'Edit {X}' => 'Bearbeiten {X}',
+  'Edit {X}' => 'Bearbeite {X}',
 );
